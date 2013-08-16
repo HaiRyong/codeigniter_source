@@ -9,7 +9,7 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<link rel='stylesheet' href="/bbs/include/css/bootstrap.css" />
+	<link rel='stylesheet' href="/bbs_/include/css/bootstrap.css" />
 </head>
 <body>
 <div id="main">
@@ -23,11 +23,11 @@
 if( @$this->session->userdata['logged_in'] == TRUE )
 {
 ?>
-<?php echo $this->session->userdata['username']?>님 환영합니다. <a href="/bbs/auth/logout" class="btn">로그아웃</a>
+<?php echo $this->session->userdata['username']?>님 환영합니다. <a href="/ci/bbs_/auth/logout" class="btn">로그아웃</a>
 <?php
 } else {
 ?>
-<a href="/bbs/auth/login" class="btn btn-primary">로그인</a>
+<a href="/bbs_/auth/login" class="btn btn-primary">로그인</a>
 <?php
 }
 ?>
@@ -37,6 +37,6 @@ if( @$this->session->userdata['logged_in'] == TRUE )
 
 	<nav id="gnb"><!-- gnb Start -->
 		<ul>
-			<li><a rel="external" href="/bbs/<?php echo $this->uri->segment(1);?>/lists/<?php echo $this->uri->segment(3);?>">게시판 프로젝트</a></li>
+			<li><a rel="external" href="/ci/bbs_/<?php echo $this->uri->segment(1);?>/lists/<?php echo $this->uri->segment(3);?>">게시판 프로젝트</a></li>
 		</ul>
 	</nav><!-- gnb End -->

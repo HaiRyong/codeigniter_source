@@ -5,7 +5,7 @@
 					alert('검색어를 입력해주세요.');
 					return false;
 				} else {
-					var act = '/bbs/board/lists/ci_board/q/'+$("#q").val()+'/page/1';
+					var act = '/bbs_/board/lists/ci_board/q/'+$("#q").val()+'/page/1';
 					$("#bd_search").attr('action', act).submit();
 				}
 			});
@@ -39,7 +39,7 @@ foreach ($list as $lt)
 					<th scope="row">
 						<?php echo $lt->board_id;?>
 					</th>
-					<td><a rel="external" href="/bbs/<?php echo $this->uri->segment(1);?>/view/<?php echo $this->uri->segment(3);?>/board_id/<?php echo $lt->board_id;?>/page/<?php echo $page;?>"><?php echo $lt->subject;?></a></td>
+					<td><a rel="external" href="/bbs_/<?php echo $this->uri->segment(1);?>/view/<?php echo $this->uri->segment(3);?>/board_id/<?php echo $lt->board_id;?>/page/<?php echo $page;?>"><?php echo $lt->subject;?></a></td>
 					<td><?php echo $lt->user_name;?></td>
 					<td><?php echo $lt->hits;?></td>
 					<td><time datetime="<?php echo mdate("%Y-%M-%j", human_to_unix($lt->reg_date));?>"><?php echo mdate("%M. %j, %Y", human_to_unix($lt->reg_date));?></time></td>
@@ -55,10 +55,10 @@ foreach ($list as $lt)
 				</tr>
 			</tfoot>
 		</table>
-		<div><p><a href="/bbs/board/write/<?php echo $this->uri->segment(3);?>/page/<?php echo $this->uri->segment(5);?>" class="btn btn-success">쓰기</a></p></div>
+		<div><p><a href="/bbs_/board/write/<?php echo $this->uri->segment(3);?>/page/<?php echo $this->uri->segment(5);?>" class="btn btn-success">쓰기</a></p></div>
 		<div>
 <?php
-			echo form_open('bbs/board/lists/ci_board', array('id'=>'bd_search', 'class'=>'well form-search'));
+			echo form_open('bbs_/board/lists/ci_board', array('id'=>'bd_search', 'class'=>'well form-search'));
 ?>
 			<!--form id="bd_search" method="post" class="well form-search" -->
 				<i class="icon-search"></i> <input type="text" name="search_word" id="q" onkeypress="board_search_enter(document.q);" class="input-medium search-query" /> <input type="button" value="검색" id="search_btn" class="btn btn-primary" />

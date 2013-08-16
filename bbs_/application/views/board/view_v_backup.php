@@ -1,10 +1,10 @@
-	<script type="text/javascript" src="/bbs/include/js/httpRequest.js"></script>
+	<script type="text/javascript" src="/bbs_/include/js/httpRequest.js"></script>
 	<script type="text/javascript">
 	function comment_add()
 	{
 		var csrf_token = getCookie('csrf_cookie_name');
 		var name = "comment_contents="+encodeURIComponent(document.com_add.comment_contents.value)+"&csrf_test_name="+csrf_token+"&table=<?php echo $this->uri->segment(3);?>&board_id=<?php echo $this->uri->segment(5);?>";
-		sendRequest("/bbs/ajax_board/ajax_comment_add", name, add_action, "POST");
+		sendRequest("/bbs_/ajax_board/ajax_comment_add", name, add_action, "POST");
 	}
 
 	function add_action()
@@ -43,7 +43,7 @@
 
 		var name = "csrf_test_name="+csrf_token+"&table=<?php echo $this->uri->segment(3);?>&board_id="+no;
 
-		sendRequest("/bbs/ajax_board/ajax_comment_delete", name, delete_action, "POST");
+		sendRequest("/bbs_/ajax_board/ajax_comment_delete", name, delete_action, "POST");
 	}
 
 	function delete_action()
@@ -125,7 +125,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="4"><a href="/bbs/board/lists/<?php echo $this->uri->segment(3);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-primary">목록</a> <a href="/bbs/board/modify/<?php echo $this->uri->segment(3);?>/board_id/<?php echo $this->uri->segment(5);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-warning">수정</a> <a href="/bbs/board/delete/<?php echo $this->uri->segment(3);?>/board_id/<?php echo $this->uri->segment(5);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-danger">삭제</a> <a href="/bbs/board/write/<?php echo $this->uri->segment(3);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-success">쓰기</a></th>
+					<th colspan="4"><a href="/bbs_/board/lists/<?php echo $this->uri->segment(3);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-primary">목록</a> <a href="/bbs_/board/modify/<?php echo $this->uri->segment(3);?>/board_id/<?php echo $this->uri->segment(5);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-warning">수정</a> <a href="/bbs_/board/delete/<?php echo $this->uri->segment(3);?>/board_id/<?php echo $this->uri->segment(5);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-danger">삭제</a> <a href="/bbs_/board/write/<?php echo $this->uri->segment(3);?>/page/<?php echo $this->uri->segment(7);?>" class="btn btn-success">쓰기</a></th>
 				</tr>
 			</tfoot>
 		</table>

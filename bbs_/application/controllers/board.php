@@ -10,7 +10,7 @@ class Board extends CI_Controller {
 	{
 		parent::__construct();
 		//$this->load->database();
-        $this->load->model('board_m');
+     $this->load->model('board_m');
 		$this->load->helper('form');
 	}
 
@@ -66,7 +66,7 @@ class Board extends CI_Controller {
 		$this->load->library('pagination');
 
 		//페이지네이션 설정
-		$config['base_url'] = '/bbs/board/lists/ci_board'.$page_url.'/page/'; //페이징 주소
+		$config['base_url'] = '/bbs_/board/lists/ci_board'.$page_url.'/page/'; //페이징 주소
 		$config['total_rows'] = $this->board_m->get_list($this->uri->segment(3), 'count', '', '', $search_word); //게시물의 전체 갯수
 		$config['per_page'] = 5; //한 페이지에 표시할 게시물 수
 		$config['uri_segment'] = $uri_segment; //페이지 번호가 위치한 세그먼트
@@ -156,13 +156,13 @@ class Board extends CI_Controller {
 				if ( $result )
 				{
 					//글 작성 성공시 게시판 목록으로
-					alert('입력되었습니다.', '/bbs/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
+					alert('입력되었습니다.', '/bbs_/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
 					exit;
 				}
 				else
 				{
 					//글 실패시 게시판 목록으로
-					alert('다시 입력해 주세요.', '/bbs/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
+					alert('다시 입력해 주세요.', '/bbs_/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
 					exit;
 				}
 
@@ -175,7 +175,7 @@ class Board extends CI_Controller {
 		}
 		else
 		{
-			alert('로그인후 작성하세요', '/bbs/auth/login/');
+			alert('로그인후 작성하세요', '/bbs_/auth/login/');
 			exit;
 		}
  	}
@@ -208,7 +208,7 @@ class Board extends CI_Controller {
 
 			if( $writer_id->user_id != $this->session->userdata('username') )
 			{
-				alert('본인이 작성한 글이 아닙니다.', '/bbs/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$pages);
+				alert('본인이 작성한 글이 아닙니다.', '/bbs_/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$pages);
 				exit;
 			}
 
@@ -224,7 +224,7 @@ class Board extends CI_Controller {
 				if ( !$this->input->post('subject', TRUE) AND !$this->input->post('contents', TRUE) )
 				{
 					//글 내용이 없을 경우, 프로그램단에서 한번 더 체크
-					alert('비정상적인 접근입니다.', '/bbs/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
+					alert('비정상적인 접근입니다.', '/bbs_/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
 					exit;
 				}
 
@@ -241,13 +241,13 @@ class Board extends CI_Controller {
 				if ( $result )
 				{
 					//글 작성 성공시 게시판 목록으로
-					alert('수정되었습니다.', '/bbs/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
+					alert('수정되었습니다.', '/bbs_/board/lists/'.$this->uri->segment(3).'/page/'.$pages);
 					exit;
 				}
 				else
 				{
 					//글 수정 실패시 글 내용으로
-					alert('다시 수정해 주세요.', '/bbs/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$pages);
+					alert('다시 수정해 주세요.', '/bbs_/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$pages);
 					exit;
 				}
 
@@ -263,7 +263,7 @@ class Board extends CI_Controller {
 		}
 		else
 		{
-			alert('로그인후 수정하세요', '/bbs/auth/login/');
+			alert('로그인후 수정하세요', '/bbs_/auth/login/');
 			exit;
 		}
  	}
@@ -287,7 +287,7 @@ class Board extends CI_Controller {
 
 			if( $writer_id->user_id != $this->session->userdata('username') )
 			{
-				alert('본인이 작성한 글이 아닙니다.', '/bbs/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$this->uri->segment(7));
+				alert('본인이 작성한 글이 아닙니다.', '/bbs_/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$this->uri->segment(7));
 				exit;
 			}
 
@@ -298,17 +298,17 @@ class Board extends CI_Controller {
 			if ( $return )
 			{
 				//삭제가 성공한 경우
-				alert('삭제되었습니다.', '/bbs/board/lists/'.$this->uri->segment(3).'/page/'.$this->uri->segment(7));
+				alert('삭제되었습니다.', '/bbs_/board/lists/'.$this->uri->segment(3).'/page/'.$this->uri->segment(7));
 			}
 			else
 			{
 				//삭제가 실패한 경
-				alert('삭제 실패하였습니다.', '/bbs/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$this->uri->segment(7));
+				alert('삭제 실패하였습니다.', '/bbs_/board/view/'.$this->uri->segment(3).'/board_id/'.$this->uri->segment(5).'/page/'.$this->uri->segment(7));
 			}
 		}
 		else
 		{
-			alert('로그인후 삭제하세요', '/bbs/auth/login/');
+			alert('로그인후 삭제하세요', '/bbs_/auth/login/');
 			exit;
 		}
  	}
